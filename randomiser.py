@@ -33,7 +33,7 @@ for filename in bundlepath:
 			try:
 				chainoutput = marko.make_sentence(tries=100, init_state=startstate, test_output=False)
 			except KeyError:
-				chainoutput = str(startstate) + "oh no"
+				chainoutput = "".join(startstate) + "oh no"
 			output.write(chainoutput + "\n")
 		
 	input.close()
