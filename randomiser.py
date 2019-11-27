@@ -29,11 +29,13 @@ for filename in bundlepath:
 		if splitline[0] == "\n":
 			output.write("\n")
 		else:
-			startstate = (splitline[0], "=")
 			try:
-				chainoutput = marko.make_sentence(tries=100, init_state=startstate, test_output=False)
+				chainoutput = marko.make_sentence(tries=100, max_words=(len(splitline) - 2), test_output=False)
+				print(len(splitline) - 2)
+				if chainoutput == None:
+					raise KeyError
 			except KeyError:
-				chainoutput = "".join(startstate) + "oh no"
+				chainoutput = "".join(splitline[0]) + " = " + "oh no"
 			output.write(chainoutput + "\n")
 		
 	input.close()
