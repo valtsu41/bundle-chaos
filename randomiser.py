@@ -31,7 +31,6 @@ for filename in bundlepath:
 		else:
 			try:
 				chainoutput = marko.make_sentence(tries=100, max_words=(len(splitline) - 2), test_output=False)
-				print(len(splitline) - 2)
 				if chainoutput == None:
 					raise KeyError
 			except KeyError:
