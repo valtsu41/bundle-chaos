@@ -1,6 +1,9 @@
 # Bundle chaos
 ## About
+### The mod
 This mod simply replaces all texts in the game to more random versions with markov chains (note that it can't do it on short words). All languages are supported!
+### Versioning
+The number before `.` indicates the algorithm version and the number after `.` indicates the build version. For example, `2.3` means that the version is the third build made with algorithm version 2. Every build has different texts.
 ## Regenerating bundles
 ### You need:
 - Python 3
