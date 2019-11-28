@@ -21,13 +21,13 @@ for filename in bundlepath:
 	input.seek(0)
 	
 	inputstring = ""
-	for line in input:
+	for linenum, line in enumerate(input):
 		splitline = line.split(" = ")
-		if splitline[0] != "\n":
+		if len(splitline) > 1:
 			try:
 				inputstring += splitline[1]
 			except IndexError:
-				print("Invalid bundle file format")
+				print("Bundle syntax error in file " + filename + " at line " + str(linenum + 1))
 				sys.exit()
 		
 	marko = markovify.NewlineText(inputstring, well_formed=False, state_size=2)
@@ -37,18 +37,14 @@ for filename in bundlepath:
 	input.seek(0)
 	
 	for linenum, line in enumerate(input):
-		print("Generating: " + filename + " (" + str(linenum) + "/" + str(lineamount) + ")", end="\r")
+		print("Generating: " + filename + " (" + str(linenum + 1) + "/" + str(lineamount) + ")", end="\r")
 		splitline = line.split(" ")
-		try:
-			chainoutput = marko.make_sentence(tries=10000, max_words=(len(splitline) - 2), test_output=False)
-			if chainoutput == None:
-				raise KeyError
-		except KeyError:
+		if len(splitline) < 3:
+			continue
+		chainoutput = marko.make_sentence(tries=10000, max_words=(len(splitline) - 2), test_output=False)
+		if chainoutput == None:
 			chainoutput = "".join(splitline[0]) + " = " + "oh no"
-		output.write(splitline[0] + "=" + chainoutput + "\n")
-		if len(splitline) - 2 == 0:
-			print("EORKRBWNENEKDLELELEKEKEkdkekennebebeK")
-			sys.exit()
+		output.write(splitline[0] + " = " + chainoutput + "\n")
 	
 	print("Generating: " + filename + " (COMPLETED)", end="\n")
 	input.close()
