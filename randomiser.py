@@ -9,6 +9,7 @@ except FileNotFoundError:
 	print("Could not locate Mindustry bundles at 'Mindustry/core/assets/bundles'")
 	sys.exit()
 
+
 for filename in bundlepath:
 	print("Generating: " + filename)
 
@@ -30,7 +31,7 @@ for filename in bundlepath:
 			output.write("\n")
 		else:
 			try:
-				chainoutput = marko.make_sentence(tries=100, max_words=(len(splitline) - 2), test_output=False)
+				chainoutput = marko.make_sentence(tries=10000, max_words=(len(splitline) - 2), test_output=False)
 				if chainoutput == None:
 					raise KeyError
 			except KeyError:

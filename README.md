@@ -14,7 +14,8 @@ The number before `.` indicates the algorithm version and the number after `.` i
 1. Open the terminal and navigate to the root of the mod directory
 2. Put the source bundles you want to use to the directory `Mindustry/core/assets/bundles`
 3. Type `python3 randomiser.py`
-4. You should have the newly generated random bundles ready!
+4. Wait. It might take some time.
+5. You should have the newly generated random bundles ready!
 
 
 (I made this guide pretty quickly so sorry if there are any mistakes.)
