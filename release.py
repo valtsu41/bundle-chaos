@@ -15,6 +15,6 @@ modfile = open("mod.json", "w")
 json.dump(moddata, modfile, indent="\t")
 modfile.close()
 
-os.system("git add mod.json && git commit -m \"Release " + version + "\"")
+os.system("git add mod.json bundles && git commit -m \"Release " + version + "\"")
 os.system("git tag -a " + version)
-print("New build '" + str(version) + "' created")
+print("New release '" + str(version) + "' created")
