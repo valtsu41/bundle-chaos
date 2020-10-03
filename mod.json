@@ -1,7 +1,9 @@
 {
-	"name": "Bundle chaos",
+	"name": "bundle-chaos",
+	"displayName": "Bundle chaos",
 	"author": "valtsu41",
 	"description": "This mod replaces all texts in the game with random ones.",
-	"version": 3.5,
-	"hidden": true
+	"version": 3.6,
+	"hidden": true,
+	"minGameVersion": 107
 }
