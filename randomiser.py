@@ -19,7 +19,7 @@ for filename in bundlepath:
 		print("Could not find 'bundles' directory for output")
 		sys.exit()
 	input.seek(0)
-	
+
 	inputstring = ""
 	for linenum, line in enumerate(input):
 		splitline = line.split(" = ")
@@ -29,23 +29,25 @@ for filename in bundlepath:
 			except IndexError:
 				print("Bundle syntax error in file " + filename + " at line " + str(linenum + 1))
 				sys.exit()
-		
+
 	marko = markovify.NewlineText(inputstring, well_formed=False, state_size=2)
 	input.seek(0)
-	
+
 	lineamount = sum(1 for line in input)
 	input.seek(0)
-	
+
 	for linenum, line in enumerate(input):
 		print("Generating: " + filename + " (" + str(linenum + 1) + "/" + str(lineamount) + ")", end="\r")
 		splitline = line.split(" ")
-		if len(splitline) < 3:
+		linelength = len(splitline) - 2
+		if linelength < 1:
 			continue
-		chainoutput = marko.make_sentence(tries=10000, max_words=(len(splitline) - 2), test_output=False)
+
+		chainoutput = marko.make_sentence(tries=10000, min_words=round(linelength * 0.75), max_words=round(linelength * 1.5), test_output=False)
 		if chainoutput == None:
-			chainoutput = "".join(splitline[0]) + " = " + "oh no"
+			chainoutput = "".join(splitne[0]) + " = " + "oh no"
 		output.write(splitline[0] + " = " + chainoutput + "\n")
-	
+
 	print("Generating: " + filename + " (COMPLETED)", end="\n")
 	input.close()
 	output.close()
