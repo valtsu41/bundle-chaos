@@ -3,7 +3,7 @@
 ### The mod
 This mod simply replaces all texts in the game to more random versions with markov chains. All languages are supported!
 ### Versioning
-The number before `.` indicates the algorithm version and the number after `.` indicates the build version. For example, `2.3` means that the version is the third build made with algorithm version 2. Every build has different texts.
+The number before `.` indicates the algorithm version and the number after `.` indicates the build version. For example, `2.3` means that the version is the third build made with algorithm version 2. Every build has different texts. (The versioning can have errors in it.)
 ## Regenerating bundles
 If you want to, you can regenerate the bundles to have different texts.
 ### You need:
@@ -17,6 +17,3 @@ If you want to, you can regenerate the bundles to have different texts.
 3. Type `python3 randomiser.py`
 4. Wait. It might take some time.
 5. You should have the newly generated random bundles ready!
-
-
-(I made this guide pretty quickly so sorry if there are any mistakes.)
