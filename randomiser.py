@@ -45,7 +45,7 @@ for filename in bundlepath:
 
 		chainoutput = marko.make_sentence(tries=10000, min_words=round(linelength * 0.75), max_words=round(linelength * 1.5), test_output=False)
 		if chainoutput == None:
-			chainoutput = "".join(splitne[0]) + " = " + "oh no"
+			chainoutput = "".join(splitline[0]) + " = " + "oh no"
 		output.write(splitline[0] + " = " + chainoutput + "\n")
 
 	print("Generating: " + filename + " (COMPLETED)", end="\n")
