@@ -3,7 +3,7 @@
 	"displayName": "Bundle chaos",
 	"author": "valtsu41",
 	"description": "This mod replaces all texts in the game with random ones.",
-	"version": 4.2,
+	"version": 5.1,
 	"hidden": true,
-	"minGameVersion": 107
+	"minGameVersion": 146
 }
